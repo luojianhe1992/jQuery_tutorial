@@ -32,6 +32,30 @@ function ai(message){
         username = message;
         send_message("Nice to meet you " + username + ", how are you doing?")
     }
+
+
+    if (message.indexOf("how are you") >= 0){
+        send_message("Thanks, I am good!");
+    }
+
+    if (message.indexOf("time") >= 0){
+
+        var date = new Date();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+
+        send_message("Current time is: " + hour + ":" + minute);
+    }
+
+    if (message.indexOf("date") >= 0){
+        var date = new Date();
+
+        current_date = date.getDate();
+        current_month = date.getMonth();
+        current_year = date.getYear();
+
+        send_message("Current date is: " + current_month + "/" + current_date + "/" + current_year);
+    }
 }
 
 
