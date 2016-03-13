@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            margin:0px;
+            background-color: #f2f2f2;
+        }
+
+        #header{
+            width: 100%;
+            height:60px;
+            background-color: #333;
+
+
+        }
+
+        #header>h1{
+
+            padding: 12px;;
+
+            width: 1024px;
+            margin: 0px auto;
+
+            color: white;
+        }
+
+
+        #container{
+            width:1024px;
+            height:500px;
+            margin:0px auto;
+
+            margin-top:10px;
+
+            background-color: white;
+            border: 1px solid;
+
+            overflow: scroll;
+        }
+
+        #controls{
+            width: 1024px;
+            margin: 0px auto;
+
+        }
+
+
+        textarea{
+            resize: none;
+            width: 940px;
+
+        }
+
+        #send{
+            font-size: 24px;
+            position: absolute;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        $(function(){
+
+            $('#textbox').keypress(function(event){
+
+                if (event.which == 13){
+                    if($('#enter').prop('checked')){
+                        $('#send').click();
+                        event.preventDefault();
+                    }
+                }
+            });
+
+            $('#send').click(function(){
+                var newMessage = $('#textbox').val();
+                $('#textbox').val('');
+                var prevState = $('#container').html();
+
+                console.log(prevState.length)
+
+
+                if (prevState.length > 6){
+                    prevState = prevState + "<br>";
+                }
+
+                $('#container').html(prevState + newMessage)
+
+                $('#container').scrollTop($('#container').prop("scrollHeight"));
+
+            });
+
+
+        });
+
+    </script>
+
+
+    <div id="header">
+        <h1>jQuery chatbox v. 1.0</h1>
+    </div>
+
+    <div id="container">
+
+    </div>
+
+    <div id="controls">
+
+        <textarea id="textbox" placeholder="Enter your message here..."></textarea>
+        <button id="send">Send</button>
+        <br>
+        <input checked type="checkbox" id="enter"/>
+        <label>Send on enter</label>
+
+    </div>
+
+
+
+</body>
+</html>

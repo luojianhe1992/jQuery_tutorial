@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+
+    <style>
+        #display{
+            width:250px;
+            height:100px;
+            border: 1px dashed green;
+        }
+    </style>
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+    $(function(){
+
+        $('#submit').click(function(){
+
+            var txt = $('#textbox').val();
+
+            $('#display').html(txt);
+
+            $('#textbox').val("");
+
+        });
+
+    });
+
+
+</script>
+
+
+
+
+<input id="textbox" type="text">
+
+<button id="submit">Submit</button>
+
+<div id="display"></div>
+
+
+</body>
+</html>

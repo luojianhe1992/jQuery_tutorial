@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+</head>
+<body>
+
+<style>
+    button{
+        font-size: 20px;
+    }
+
+    .big{
+        font-size: 30px;
+    }
+
+    .small{
+        font-size: 10px;
+    }
+
+    #green{
+        color: green;
+    }
+
+
+</style>
+
+<script type="text/javascript">
+
+    $(function(){
+        $('#special').click(function(){
+
+            $('button:not(#special)').hide();
+
+            $(this).css('font-size', "80px");
+            $(this).css('color', 'red');
+
+        });
+    });
+
+</script>
+
+
+<button id="special">Button 1</button>
+
+<hr>
+
+<button class="big">Button 2</button>
+
+<hr>
+
+<button id="green" class="big">Button 3</button>
+
+<hr>
+
+<button class="small">Button 4</button>
+
+
+
+
+</body>
+</html>
