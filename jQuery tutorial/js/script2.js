@@ -8,12 +8,25 @@ $(function () {
 
     var current_li;
 
+    function setImg(src, id){
+        $('#main').attr('src', src);
+
+
+        $.get('path', function(data){
+
+        });
+
+    }
+
+
     $('#portfolio img').click(function(){
         var src = $(this).attr("src");
 
+        var id = $(this).attr('id');
+
         current_li = $(this).parent();
 
-        $('#main').attr('src', src);
+        setImg(src, id);
 
         $('#frame').fadeIn()
 
@@ -43,7 +56,9 @@ $(function () {
 
         var next_src = next_li.children('img').attr('src');
 
-        $('#main').attr('src', next_src);
+        var id = next_li.children('img').attr('id');
+
+        setImg(next_src, id);
 
         current_li = next_li;
 
@@ -60,7 +75,9 @@ $(function () {
 
         var previous_src = previous_li.children('img').attr('src');
 
-        $('#main').attr('src', previous_src);
+        var id = previous_li.children('img').attr('id');
+
+        setImg(previous_src, id);
 
         current_li = previous_li;
 
